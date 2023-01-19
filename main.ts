@@ -1,10 +1,34 @@
 input.onButtonPressed(Button.A, function () {
-    basic.showIcon(IconNames.Happy)
+    basic.showNumber(2001)
+})
+input.onButtonPressed(Button.AB, function () {
+    music.playMelody("- D F F G B D G ", 120)
 })
 input.onButtonPressed(Button.B, function () {
-    basic.showIcon(IconNames.Tortoise)
+    led.plot(4, 4)
+    led.toggle(3, 1)
+    led.plot(1, 4)
+    led.plotBarGraph(
+    6,
+    7
+    )
+    led.plotBarGraph(
+    1,
+    5
+    )
 })
-basic.showIcon(IconNames.Heart)
+input.onGesture(Gesture.Shake, function () {
+    basic.showIcon(IconNames.Happy)
+})
 basic.forever(function () {
-    music.playMelody("E C C - E B C5 C5 ", 120)
+    while (input.logoIsPressed()) {
+        basic.showLeds(`
+            # # # # #
+            # # # # #
+            # # # # #
+            # # # # #
+            # # # # #
+            `,0)
+    }
+    basic.clearScreen()
 })
